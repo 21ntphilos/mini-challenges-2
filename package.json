@@ -4,6 +4,7 @@
   "description": "Lab 1 - challenges",
   "main": "jest",
   "scripts": {
+    "dev":"jest morse",
     "test": "jest",
     "test:watch": "jest --watch",
     "prepare": "husky install"
