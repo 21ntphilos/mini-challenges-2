@@ -61,7 +61,7 @@ Object.freeze(MORSE_CODE);
   function morse(text) {
 
     if (text == "")throw("Please provide a morse string");
-    if (text === "")return text;
+    if (text === "")return ("");
 
     let mword = text.trim().split("   ")
 

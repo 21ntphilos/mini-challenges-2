@@ -3,53 +3,46 @@ function isolateDuplicates(text) {
 
   if (typeof text != "string") {throw("Please enter a valid string");}
 
-  console.log(` initials : ${text}`);
+    let lower = text.toLowerCase();
+    let Alphabets = text.split('');
 
-  let n = text.split('');
+    let result = '';
+    let i = 0;
+    let count = 0;
 
-  let result = [];
+    for(;i<Alphabets.length && i<lower.length;){
 
-  let i = 0;
-  let count = 0;
+        result += (Alphabets[i]);
 
-  for(;i<n.length;){
+        if(lower[i] === lower[i + 1]){
 
-    result.push(n[i]);
+            i++;
+            result += (Alphabets[i]);
 
-    // if (n[i] === n[i + 1]) {
 
-      console.log(`in first if i :${i}`)
+            if((lower[i]) === lower[i+1]){
 
-      if(n[i] === n[i+1]){
+              let replica = [];
 
-        i++;
+              for (;lower[i] === lower[i+1];) {
 
-        result.push(n[i]);
+                replica.push(Alphabets[i + 1]);
+                i++;
+              }
 
-        if(n[i] === n[i+1]){
-
-        let replica = '';
-
-        for (;n[i] === n[i + 1] && i < n.length;) {
-
-          replica += (n[i + 1]);
-
+              result += `[${replica.join('')}]`;
+              count ++;
+            }
           i++;
-          // console.log(`in 2nd if for loop i :${i}`)
+
         }
+        else {
 
-        result.push(replica);
-        count ++;
+            i ++; }
       }
 
-      }
-      else {i ++; }
+    return [result,count];
 
-    }
-
-
-  return result.join('')+ count;
-
-}
+  }
 
 module.exports = isolateDuplicates;
