@@ -59,14 +59,15 @@ const MORSE_CODE = {
 Object.freeze(MORSE_CODE);
 
   function morse(text) {
+    if (text ==="")return "";
+    if (text =="")throw("Please provide a morse string");
 
-    if (text == "")throw("Please provide a morse string");
-    if (text === "")return ("");
 
     let mword = text.trim().split("   ")
 
     return mword.map(word=> word.split(' ').map(letter => MORSE_CODE[letter]).join('')).join(' ')
-    // console.log(words)
+    // takes each morse_sentence breaks it down to the the words and further breaks it down to the letters
+    // converts the letter and return it 
   }
 
 
